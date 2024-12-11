@@ -10,18 +10,6 @@ To run the file use the command:
 python manage.py runserver
 
 
-Admin eamil - admin@admin.com
-
-admin username - admin
-
-admin -admin123
-
-Vendor ID
-
-11910617
-11910616
-11910615
-
 
 If your system doesn't have django installed. Please refer this link: https://docs.djangoproject.com/en/4.0/howto/windows/
 
