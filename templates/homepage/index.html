@@ -1,0 +1,161 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    
+    <title>Online Tiffin Service</title>
+
+    <style type="text/css">
+        body {
+            background-color:burlywood;;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+
+        .card_container {
+            margin: 5%;
+        }
+
+        #card {
+            opacity: .9;
+        }
+
+        .login_btn {
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .login_btn:hover {
+            background-color: #0056b3;
+        }
+
+        .alert {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-expand-lg navbar-light bg-light" style="opacity: .7;">
+        <a class="navbar-brand" href="#">
+            <b>Nawab Dhaba</b>
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{% url 'register' %}" class="nav-link">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'VendorLogin' %}" class="nav-link">Vendors</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'admin:index' %}" class="nav-link" target="_blank">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card_container">
+        <div class="card mx-auto my-lg-5" style="width: 25rem;" id="card">
+            <div class="card-body">
+            
+                {% if page == 'register' %}
+                <h5 class="card-title text-center">Register Here</h5>
+                <center><img src="{% static 'images/chefs.jpg' %}" height="200px"></center>
+                <form action="{% url 'register' %}" method="post">
+                    
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            {{ form.username }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password1">Password</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            {{ form.password1 }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password2">Confirm Password</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            {{ form.password2 }}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <input class="btn login_btn" type="submit" value="Register Account">
+                    </div>
+
+                </form>
+
+                <p class="text-center mt-2">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
+                {% for message in messages %}
+                    <div class="alert alert-success mt-3">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+                {% else %}
+                <h5 class="card-title text-center">Login</h5>
+                <center><img src="static\images\chef.jpg" height="200px"></center>
+                
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="text-center">
+                        <img src=""
+                        <p><input type="text" name="username" class="form-control" placeholder="Enter Username"></p>
+                        <p><input type="password" name="password" class="form-control" placeholder="Enter Password"></p>
+                        <p></p>
+                        <input type="submit" class="btn login_btn" value="Login">
+                    </div>
+                </form>
+                <p class="text-center mt-3">Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

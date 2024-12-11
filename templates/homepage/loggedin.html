@@ -1,0 +1,169 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+{% block navbar %}
+{% if request.user.is_authenticated %}
+<li class="nav-item active">
+    <a href="#" class="nav-link" > Hello  {{ request.user.username}} ♥</a>
+</li>
+<li class="nav-item">
+    <a href="{% url 'logout' %}" class="nav-link" target="_blank">Logout</a>
+</li>
+{% else %}
+<li class="nav-item">
+    <a href="{% url 'admin:index' %}" class="nav-link" target="_blank">Login</a>
+</li>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-md-block w-100" src="{% static 'images/logedin.jpg' %}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+
+            <div class="text-center" style="margin-bottom: 33% ;margin-left: 1.3%;">
+            
+            
+            </div>
+
+      </div>
+     
+    </div>
+  </div>
+
+  
+<div class="text-center">
+    <div class="row m-5">
+        <div class="col">
+            <div class="card m-5" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/free1.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">A 2 Day free trial plan. </p>
+                    <div class="text-center">
+                        <a href="{% url 'Free' %}" style="text-decoration: none; border-style:ridge; padding: 2%;">Free!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card m-5" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/thali_1.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">2 Weeks Vegetarian Plan </p>
+                    <div class="text-center">
+                        
+                         <a href="{% url 'TwoWeekVeg' %}" style="text-decoration: none; border-style:ridge; padding: 2%;">₹499</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card m-5" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/th3.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">One month Vegetarian plan. </p>
+                    <div class="text-center">
+                        <!-- <input type="submit" value="₹799" class="btn btn-info"> -->
+                        <a href="{% url 'OneMonthVeg' %}" style="text-decoration: none; border-style:ridge; padding: 2%;">₹799</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-5">
+        <div class="col">
+            <div class="card m-5" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/th25.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">One month Vegetarian + Non Vegetarian Plan</p>
+                    <div class="text-center">
+                        <!-- <input type="submit" value="₹999" class="btn btn-info"> -->
+                        <a href="{% url 'OneMonthVegNonVeg' %}" style="text-decoration: none; border-style:ridge; padding: 2%;">₹999</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card m-5" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/th24.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">3 Month Vegetarian Plan</p>
+                    <div class="text-center">
+                        <!-- <input type="submit" value="₹2499" class="btn btn-info"> -->
+                        <a href="{% url 'ThreeMonthVeg' %}" style="text-decoration: none; border-style:ridge; padding: 2%;">₹2499</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card m-5" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/th16.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">3 Months Vegetarian + Non - Vegetarian Plan</p>
+                    <div class="text-center">
+                        <!-- <input type="submit" value="₹2699" class="btn btn-info"> -->
+                        <a href="{% url 'ThreeMonthVegNonveg' %}" style="text-decoration: none; border-style:ridge; padding: 2%;">₹2699</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+<footer style="background-color: #212529; padding: 40px 0; color: #fff; font-family: 'Arial', sans-serif;">
+
+   
+    <!-- Menu Section -->
+    <div style="text-align: center; padding: 20px; background-color: #343a40; color: #fff; margin-bottom: 20px;">
+        <h3 style="font-size: 1.3rem; color: burlywood; margin-bottom: 10px; text-transform: uppercase;">Our Menu</h3>
+        <p style="font-size: 1rem; color: #ddd;">
+            <strong style="color: burlywood;">Popular Dishes:</strong> Biryani, Pasta, Paneer Butter Masala, Tacos, Chocolate Cake
+        </p>
+    </div>
+
+    <!-- Important Links and Social Media -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; text-align: center; padding: 20px;">
+        
+        <!-- Important Links -->
+        <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h3 style="font-size: 1.3rem; color: burlywood;; margin-bottom: 15px; text-transform: uppercase;">Important Links</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin: 10px 0;"><a href="{% url 'about' %}"target="_blank" style="text-decoration: none; color: #bbb; font-size: 1rem;">About Us</a></li>
+                <li style="margin: 10px 0;"><a href="shef.html" style="text-decoration: none; color: #bbb; font-size: 1rem;">Services</a></li>
+                <li style="margin: 10px 0;"><a href="register.html" style="text-decoration: none; color: #bbb; font-size: 1rem;">Register</a></li>
+                <li style="margin: 10px 0;"><a href="login.html" style="text-decoration: none; color: #bbb; font-size: 1rem;">Login</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Media Links -->
+        <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h3 style="font-size: 1.3rem; color: burlywood; margin-bottom: 15px; text-transform: uppercase;">Follow Us</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin: 10px 0;"><a href="#" style="text-decoration: none; color: #bbb; font-size: 1rem;">Instagram</a></li>
+                <li style="margin: 10px 0;"><a href="#" style="text-decoration: none; color: #bbb; font-size: 1rem;">Facebook</a></li>
+                <li style="margin: 10px 0;"><a href="#" style="text-decoration: none; color: #bbb; font-size: 1rem;">Twitter</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div style="text-align: center; padding: 15px; background-color: #212529; border-top: 1px solid #444;">
+        <p style="font-size: 0.9rem; color: #bbb;">&copy; Gobbulu Tiffin Services, Inc. 2024. All Rights Reserved</p>
+        <a href="privacy-policy.html" style="margin: 0 10px; text-decoration: none; color: burlywood; font-size: 0.9rem;">Privacy Policy</a>
+        <a href="terms.html" style="margin: 0 10px; text-decoration: none; color:burlywood;font-size: 0.9rem;">Terms Of Services</a>
+    </div>
+</footer>
+
+
+     
+</div> 
+
+
+   
+
+    {% endblock %}
