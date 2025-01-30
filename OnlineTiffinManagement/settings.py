@@ -15,6 +15,11 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR,"templates/")
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Collects static files here
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -25,7 +30,12 @@ SECRET_KEY = 'django-insecure-&-dpc*ch(6z2&@j#-rz#pa_!r@!#ow#qn1j#1t=ld4@9zt2$7&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["nawabdhaba.onrender.com", "127.0.0.1", "localhost"]
+
+CSRF_TRUSTED_ORIGINS = ["https://nawabdhaba.onrender.com"]
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 
 
 # Application definition
