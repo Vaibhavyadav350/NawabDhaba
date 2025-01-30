@@ -23,11 +23,11 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,"templates/")
 SECRET_KEY = 'django-insecure-&-dpc*ch(6z2&@j#-rz#pa_!r@!#ow#qn1j#1t=ld4@9zt2$7&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["nawabdhaba.onrender.com", "127.0.0.1", "localhost"]
-#pass - youcan@123
-CSRF_TRUSTED_ORIGINS = ["https://nawabdhaba.onrender.com"]
+ALLOWED_HOSTS = []
+
+
 # Application definition
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
